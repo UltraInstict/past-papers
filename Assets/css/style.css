@@ -70,3 +70,17 @@ body {
     margin-top: 2rem;
   }
   
+  .subject-list, .papers-list {
+    display: none; /* hide by default */
+    padding-left: 1rem;
+  }
+  
+  .grade-header, .subject-header {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .grade-header:hover, .subject-header:hover {
+    text-decoration: underline;
+  }
+  

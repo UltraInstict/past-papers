@@ -6,14 +6,27 @@ async function loadPapers() {
     container.innerHTML = "";
   
     for (const grade in data) {
+      // Grade header
       const gradeDiv = document.createElement("div");
-      gradeDiv.innerHTML = `<h2>${grade}</h2>`;
+      const gradeHeader = document.createElement("h2");
+      gradeHeader.textContent = grade;
+      gradeHeader.classList.add("grade-header");
+      gradeDiv.appendChild(gradeHeader);
+  
+      // Subjects container
+      const subjectsDiv = document.createElement("div");
+      subjectsDiv.classList.add("subject-list");
   
       for (const subject in data[grade]) {
         const subjectDiv = document.createElement("div");
-        subjectDiv.innerHTML = `<h3>${subject}</h3>`;
+        const subjectHeader = document.createElement("h3");
+        subjectHeader.textContent = subject;
+        subjectHeader.classList.add("subject-header");
+        subjectDiv.appendChild(subjectHeader);
   
         const list = document.createElement("ul");
+        list.classList.add("papers-list");
+  
         data[grade][subject].forEach(entry => {
           const item = document.createElement("li");
           item.innerHTML = `${entry.year}: 
@@ -23,9 +36,21 @@ async function loadPapers() {
         });
   
         subjectDiv.appendChild(list);
-        gradeDiv.appendChild(subjectDiv);
+        subjectsDiv.appendChild(subjectDiv);
+  
+        // Toggle papers on subject click
+        subjectHeader.addEventListener("click", () => {
+          list.style.display = list.style.display === "block" ? "none" : "block";
+        });
       }
+  
+      gradeDiv.appendChild(subjectsDiv);
       container.appendChild(gradeDiv);
+  
+      // Toggle subjects on grade click
+      gradeHeader.addEventListener("click", () => {
+        subjectsDiv.style.display = subjectsDiv.style.display === "block" ? "none" : "block";
+      });
     }
   }
   
