@@ -1,0 +1,17 @@
+{
+    "Grade 12": {
+      "Afrikaans": [
+        { "year": 2023, "paper": "papers/grade-12/Afrikaans-FAL-P1-Nov-2024.pdf", "memo": "papers/grade-12/Afrikaans-FAL-P1-Nov-2024-MG.pdf" },
+        { "year": 2022, "paper": "papers/grade-12/maths-2022.pdf", "memo": "papers/grade-12/maths-2022-memo.pdf" }
+      ],
+      "Physics": [
+        { "year": 2022, "paper": "papers/grade-12/physics-2022.pdf" }
+      ]
+    },
+    "Grade 11": {
+      "Maths": [
+        { "year": 2022, "paper": "papers/grade-11/maths-2022.pdf" }
+      ]
+    }
+  }
+  

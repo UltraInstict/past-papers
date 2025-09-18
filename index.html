@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Past Papers Library</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Papers & Memos</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header>
-    <h1>Past Papers & Study Guides</h1>
-    <input type="text" id="searchBar" placeholder="Search papers...">
+    <h1>Past Papers & Memos</h1>
+    <p>Find and download past exam papers with memos for high school and varsity.</p>
   </header>
 
-  <main id="papers-list">
-    <p>Past papers coming soon.</p>
-  </main>
+  <section>
+    <input type="text" id="search" placeholder="🔍 Search by subject, grade, year...">
+  </section>
 
-  <script src="assets/js/search.js"></script>
+  <main id="papers-container"></main>
+
+  <footer>
+    <p>Hosted on Netlify | Open Source Project</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
 </body>
 </html>
