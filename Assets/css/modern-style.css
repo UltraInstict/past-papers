@@ -425,7 +425,7 @@
   /* Papers Grid */
   .papers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
   }
   
@@ -510,26 +510,40 @@
     gap: 0.5rem;
   }
   
+  .papers-count {
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+  
   .papers-list {
     background: var(--surface-color);
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     display: none;
   }
   
+  /* NEW: Improved Paper Item Layout */
   .paper-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    margin: 0.5rem 0;
     background: var(--bg-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
+    margin-bottom: 1rem;
     transition: var(--transition);
+    overflow: hidden;
   }
   
   .paper-item:hover {
-    transform: translateX(10px);
     box-shadow: var(--shadow);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+  
+  .paper-header {
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface-color);
   }
   
   .paper-info {
@@ -541,37 +555,135 @@
   .paper-year {
     background: var(--primary-color);
     color: white;
-    padding: 0.25rem 0.75rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+  }
+  
+  .paper-details h4 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+  }
+  
+  .paper-details p {
+    margin: 0.25rem 0 0;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  
+  .paper-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-light);
+    font-size: 0.8rem;
+  }
+  
+  .paper-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .paper-actions {
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-color);
   }
   
   .paper-links {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
   
   .paper-link {
-    padding: 0.5rem 1rem;
+    flex: 1;
+    min-width: 120px;
+    padding: 0.75rem 1rem;
     background: var(--gradient);
     color: white;
     text-decoration: none;
     border-radius: var(--border-radius);
     font-size: 0.9rem;
+    font-weight: 500;
     transition: var(--transition);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
   }
   
   .paper-link:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: var(--shadow);
   }
   
   .paper-link.memo {
     background: var(--gradient-accent);
+  }
+  
+  .paper-link.preview {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+  
+  .paper-link.download {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+  
+  /* Card View Alternative */
+  .papers-grid.card-view .paper-item {
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  
+  .papers-grid.card-view .paper-header {
+    background: var(--gradient);
+    color: white;
+  }
+  
+  .papers-grid.card-view .paper-year {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .papers-grid.card-view .paper-details h4,
+  .papers-grid.card-view .paper-details p {
+    color: white;
+  }
+  
+  .papers-grid.card-view .paper-meta {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Compact List View */
+  .papers-grid.compact-view .paper-item {
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+  }
+  
+  .papers-grid.compact-view .paper-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .papers-grid.compact-view .paper-actions {
+    padding: 0.5rem 1rem;
+  }
+  
+  .papers-grid.compact-view .paper-links {
+    gap: 0.5rem;
+  }
+  
+  .papers-grid.compact-view .paper-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    min-width: 100px;
   }
   
   /* About & Contact Pages */

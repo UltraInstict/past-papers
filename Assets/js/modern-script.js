@@ -137,6 +137,13 @@ class PapersHub {
         });
       });
   
+      // Add view mode options
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '1') this.setViewMode('grid');
+        if (e.key === '2') this.setViewMode('card');
+        if (e.key === '3') this.setViewMode('compact');
+      });
+  
       // Contact form
       document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -435,25 +442,42 @@ class PapersHub {
       item.className = 'paper-item slide-in-right';
       item.setAttribute('data-year', paper.year);
   
+      // Extract additional metadata if available
+      const paperType = paper.paper_type || 'Exam Paper';
+      const duration = paper.duration || 'N/A';
+      const marks = paper.marks || 'N/A';
+  
       item.innerHTML = `
-        <div class="paper-info">
-          <div class="paper-year">${paper.year}</div>
-          <div class="paper-details">
-            <strong>${subject}</strong>
-            <small>${grade}</small>
+        <div class="paper-header">
+          <div class="paper-info">
+            <div class="paper-year">${paper.year}</div>
+            <div class="paper-details">
+              <h4>${subject}</h4>
+              <p>${grade} • ${paperType}</p>
+            </div>
+          </div>
+          <div class="paper-meta">
+            <span><i class="fas fa-clock"></i> ${duration}</span>
+            <span><i class="fas fa-award"></i> ${marks} marks</span>
           </div>
         </div>
-        <div class="paper-links">
-          <a href="${paper.paper}" class="paper-link" target="_blank" rel="noopener">
-            <i class="fas fa-file-pdf"></i>
-            Paper
-          </a>
-          ${paper.memo ? `
-            <a href="${paper.memo}" class="paper-link memo" target="_blank" rel="noopener">
-              <i class="fas fa-file-text"></i>
-              Memo
+        <div class="paper-actions">
+          <div class="paper-links">
+            <a href="${paper.paper}" class="paper-link" target="_blank" rel="noopener">
+              <i class="fas fa-file-pdf"></i>
+              View Paper
             </a>
-          ` : ''}
+            ${paper.memo ? `
+              <a href="${paper.memo}" class="paper-link memo" target="_blank" rel="noopener">
+                <i class="fas fa-file-text"></i>
+                View Memo
+              </a>
+            ` : ''}
+            <a href="${paper.paper}" class="paper-link download" download>
+              <i class="fas fa-download"></i>
+              Download
+            </a>
+          </div>
         </div>
       `;
   
@@ -521,8 +545,30 @@ class PapersHub {
     updateView() {
       const container = document.getElementById('papers-container');
       if (container) {
-        container.className = `papers-grid ${this.currentView === 'list' ? 'list-view' : ''}`;
+        // Remove all view classes
+        container.className = container.className.replace(/\b(list-view|card-view|compact-view)\b/g, '');
+        
+        // Add new view class
+        if (this.currentView === 'list') {
+          container.classList.add('list-view');
+        } else if (this.currentView === 'card') {
+          container.classList.add('card-view');
+        } else if (this.currentView === 'compact') {
+          container.classList.add('compact-view');
+        }
+        
+        container.className = `papers-grid ${container.classList.contains('list-view') ? 'list-view' : ''}${container.classList.contains('card-view') ? ' card-view' : ''}${container.classList.contains('compact-view') ? ' compact-view' : ''}`;
       }
+    }
+  
+    setViewMode(mode) {
+      this.currentView = mode;
+      this.updateView();
+      
+      // Update active button
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-view') === mode);
+      });
     }
   
     handleContactForm(form) {
