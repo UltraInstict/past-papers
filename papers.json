@@ -1,17 +1,204 @@
 {
-    "Grade 12": {
-      "Afrikaans": [
-        { "year": 2023, "paper": "papers/grade-12/Afrikaans-FAL-P1-Nov-2024.pdf", "memo": "papers/grade-12/Afrikaans-FAL-P1-Nov-2024-MG.pdf" },
-        { "year": 2022, "paper": "papers/grade-12/maths-2022.pdf", "memo": "papers/grade-12/maths-2022-memo.pdf" }
-      ],
-      "Physics": [
-        { "year": 2022, "paper": "papers/grade-12/physics-2022.pdf" }
-      ]
-    },
-    "Grade 11": {
-      "Maths": [
-        { "year": 2022, "paper": "papers/grade-11/maths-2022.pdf" }
-      ]
-    }
+  "Grade 12": {
+    "Mathematics": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/maths-2024-p1.pdf",
+        "memo": "papers/grade-12/maths-2024-p1-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["algebra", "calculus", "geometry"]
+      },
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/maths-2024-p2.pdf",
+        "memo": "papers/grade-12/maths-2024-p2-memo.pdf",
+        "paper_type": "Paper 2",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["statistics", "trigonometry", "finance"]
+      },
+      {
+        "year": 2023,
+        "paper": "papers/grade-12/maths-2023-p1.pdf",
+        "memo": "papers/grade-12/maths-2023-p1-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["algebra", "calculus", "geometry"]
+      }
+    ],
+    "Physical Sciences": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/physics-2024-p1.pdf",
+        "memo": "papers/grade-12/physics-2024-p1-memo.pdf",
+        "paper_type": "Paper 1 (Physics)",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["mechanics", "waves", "electricity"]
+      },
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/chemistry-2024-p2.pdf",
+        "memo": "papers/grade-12/chemistry-2024-p2-memo.pdf",
+        "paper_type": "Paper 2 (Chemistry)",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["organic", "inorganic", "physical chemistry"]
+      }
+    ],
+    "Life Sciences": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/life-sciences-2024-p1.pdf",
+        "memo": "papers/grade-12/life-sciences-2024-p1-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "2.5 hours",
+        "marks": "150",
+        "tags": ["human biology", "genetics", "ecology"]
+      }
+    ],
+    "English Home Language": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/english-hl-2024-p1.pdf",
+        "memo": "papers/grade-12/english-hl-2024-p1-memo.pdf",
+        "paper_type": "Paper 1 (Language)",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "70",
+        "tags": ["comprehension", "language", "summary"]
+      },
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/english-hl-2024-p2.pdf",
+        "memo": "papers/grade-12/english-hl-2024-p2-memo.pdf",
+        "paper_type": "Paper 2 (Literature)",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "80",
+        "tags": ["poetry", "drama", "novel", "essay"]
+      }
+    ],
+    "Afrikaans First Additional Language": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/afrikaans-fal-2024-p1.pdf",
+        "memo": "papers/grade-12/afrikaans-fal-2024-p1-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "70",
+        "tags": ["begrip", "taal", "opsomming"]
+      }
+    ],
+    "Geography": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/geography-2024-p1.pdf",
+        "memo": "papers/grade-12/geography-2024-p1-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["climate", "landforms", "development"]
+      }
+    ],
+    "History": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/history-2024-p1.pdf",
+        "memo": "papers/grade-12/history-2024-p1-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["civil rights", "cold war", "apartheid"]
+      }
+    ],
+    "Accounting": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-12/accounting-2024.pdf",
+        "memo": "papers/grade-12/accounting-2024-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "300",
+        "tags": ["financial statements", "analysis", "ethics"]
+      }
+    ]
+  },
+  "Grade 11": {
+    "Mathematics": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-11/maths-2024-p1.pdf",
+        "memo": "papers/grade-11/maths-2024-p1-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["functions", "trigonometry", "sequences"]
+      }
+    ],
+    "Physical Sciences": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-11/physics-2024.pdf",
+        "memo": "papers/grade-11/physics-2024-memo.pdf",
+        "paper_type": "Physics Paper",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "150",
+        "tags": ["motion", "energy", "momentum"]
+      }
+    ],
+    "Life Sciences": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-11/life-sciences-2024.pdf",
+        "memo": "papers/grade-11/life-sciences-2024-memo.pdf",
+        "paper_type": "Paper 1",
+        "exam_board": "DBE",
+        "duration": "2.5 hours",
+        "marks": "150",
+        "tags": ["cells", "tissues", "plants"]
+      }
+    ]
+  },
+  "Grade 10": {
+    "Mathematics": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-10/maths-2024.pdf",
+        "memo": "papers/grade-10/maths-2024-memo.pdf",
+        "paper_type": "Final Exam",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "100",
+        "tags": ["algebra", "geometry", "data handling"]
+      }
+    ],
+    "Physical Sciences": [
+      {
+        "year": 2024,
+        "paper": "papers/grade-10/physical-sciences-2024.pdf",
+        "memo": "papers/grade-10/physical-sciences-2024-memo.pdf",
+        "paper_type": "Final Exam",
+        "exam_board": "DBE",
+        "duration": "3 hours",
+        "marks": "100",
+        "tags": ["matter", "chemical change", "forces"]
+      }
+    ]
   }
-  
+}

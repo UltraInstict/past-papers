@@ -3,25 +3,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Past Papers & Memos</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Past Papers Hub - Your Study Companion</title>
+  <link rel="stylesheet" href="Assets/css/modern-style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Past Papers & Memos</h1>
-    <p>Find and download past exam papers with memos for high school and varsity.</p>
-  </header>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Papers Hub</span>
+      </div>
+      
+      <div class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active" data-page="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#papers" class="nav-link" data-page="papers">
+          <i class="fas fa-file-alt"></i>
+          <span>Papers</span>
+        </a>
+        <a href="#about" class="nav-link" data-page="about">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </a>
+        <a href="#contact" class="nav-link" data-page="contact">
+          <i class="fas fa-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </div>
 
-  <section>
-    <input type="text" id="search" placeholder="🔍 Search by subject, grade, year...">
-  </section>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
 
-  <main id="papers-container"></main>
+      <div class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </div>
+    </div>
+  </nav>
 
-  <footer>
-    <p>Hosted on Netlify | Open Source Project</p>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Home Page -->
+    <section id="home-page" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Find Your Past Papers</h1>
+          <p>Access thousands of exam papers and memos for South African schools</p>
+          
+          <!-- Enhanced Search -->
+          <div class="search-container">
+            <div class="search-box">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" id="main-search" placeholder="Search subjects, grades, years..." autocomplete="off">
+              <div class="search-suggestions" id="search-suggestions"></div>
+            </div>
+          </div>
+
+          <!-- Quick Filters -->
+          <div class="quick-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="grade-12">Grade 12</button>
+            <button class="filter-btn" data-filter="grade-11">Grade 11</button>
+            <button class="filter-btn" data-filter="grade-10">Grade 10</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics Dashboard -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="total-papers">0</h3>
+            <p>Total Papers</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="total-subjects">0</h3>
+            <p>Subjects</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-calendar"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="latest-year">2024</h3>
+            <p>Latest Year</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-download"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="downloads-today">0</h3>
+            <p>Downloads Today</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Papers Page -->
+    <section id="papers-page" class="page">
+      <div class="page-header">
+        <h2>Browse Papers</h2>
+        <div class="view-controls">
+          <button class="view-btn active" data-view="grid">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" data-view="list">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Advanced Filters -->
+      <div class="filters-panel">
+        <div class="filter-group">
+          <label for="grade-filter">Grade:</label>
+          <select id="grade-filter">
+            <option value="">All Grades</option>
+            <option value="Grade 12">Grade 12</option>
+            <option value="Grade 11">Grade 11</option>
+            <option value="Grade 10">Grade 10</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="subject-filter">Subject:</label>
+          <select id="subject-filter">
+            <option value="">All Subjects</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="year-filter">Year:</label>
+          <select id="year-filter">
+            <option value="">All Years</option>
+          </select>
+        </div>
+
+        <button class="clear-filters" id="clear-filters">
+          <i class="fas fa-times"></i> Clear Filters
+        </button>
+      </div>
+
+      <!-- Papers Grid -->
+      <div class="papers-grid" id="papers-container"></div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about-page" class="page">
+      <div class="page-content">
+        <h2>About Papers Hub</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>Papers Hub is your comprehensive resource for South African past exam papers and memorandums. We provide easy access to high-quality educational materials to help students excel in their studies.</p>
+            
+            <h3>Our Mission</h3>
+            <p>To democratize access to quality educational resources and help every student reach their full potential through comprehensive exam preparation materials.</p>
+            
+            <h3>Features</h3>
+            <ul>
+              <li><i class="fas fa-check"></i> Extensive collection of past papers</li>
+              <li><i class="fas fa-check"></i> Detailed memorandums and solutions</li>
+              <li><i class="fas fa-check"></i> Mobile-friendly interface</li>
+              <li><i class="fas fa-check"></i> Advanced search capabilities</li>
+              <li><i class="fas fa-check"></i> Regular updates with latest papers</li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact-page" class="page">
+      <div class="page-content">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>info@papershub.co.za</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Phone</h4>
+                <p>+27 11 123 4567</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Location</h4>
+                <p>Johannesburg, South Africa</p>
+              </div>
+            </div>
+          </div>
+          
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Papers Hub</h4>
+        <p>Your trusted source for South African exam papers and study materials.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#papers">Papers</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Papers Hub. All rights reserved. | Open Source Project</p>
+    </div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+  <script src="Assets/js/modern-script.js"></script>
 </body>
 </html>
