@@ -1,7 +1,11 @@
 async function loadPapers() {
     const response = await fetch("papers.json");
-    const data = await response.json();
+    if (!response.ok) {
+      console.error("Failed to load papers.json");
+      return;
+    }
   
+    const data = await response.json();
     const container = document.getElementById("papers-container");
     container.innerHTML = "";
   
@@ -13,7 +17,6 @@ async function loadPapers() {
       gradeHeader.classList.add("grade-header");
       gradeDiv.appendChild(gradeHeader);
   
-      // Subjects container
       const subjectsDiv = document.createElement("div");
       subjectsDiv.classList.add("subject-list");
   
@@ -38,7 +41,7 @@ async function loadPapers() {
         subjectDiv.appendChild(list);
         subjectsDiv.appendChild(subjectDiv);
   
-        // Toggle papers on subject click
+        // Toggle papers
         subjectHeader.addEventListener("click", () => {
           list.style.display = list.style.display === "block" ? "none" : "block";
         });
@@ -47,7 +50,7 @@ async function loadPapers() {
       gradeDiv.appendChild(subjectsDiv);
       container.appendChild(gradeDiv);
   
-      // Toggle subjects on grade click
+      // Toggle subjects
       gradeHeader.addEventListener("click", () => {
         subjectsDiv.style.display = subjectsDiv.style.display === "block" ? "none" : "block";
       });
@@ -56,7 +59,7 @@ async function loadPapers() {
   
   document.addEventListener("DOMContentLoaded", loadPapers);
   
-  // 🔍 Search filter
+  // Search filter
   document.getElementById("search").addEventListener("input", function () {
     const query = this.value.toLowerCase();
     document.querySelectorAll("#papers-container li").forEach(item => {

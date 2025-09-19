@@ -35,13 +35,18 @@ body {
     padding: 2rem;
   }
   
-  h2 {
-    color: #0066cc;
+  .grade-header, .subject-header {
+    cursor: pointer;
+    user-select: none;
   }
   
-  h3 {
-    margin-top: 1rem;
-    color: #444;
+  .subject-list, .papers-list {
+    display: none;
+    padding-left: 1rem;
+  }
+  
+  .grade-header:hover, .subject-header:hover {
+    text-decoration: underline;
   }
   
   ul {
@@ -68,19 +73,5 @@ body {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-  }
-  
-  .subject-list, .papers-list {
-    display: none; /* hide by default */
-    padding-left: 1rem;
-  }
-  
-  .grade-header, .subject-header {
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .grade-header:hover, .subject-header:hover {
-    text-decoration: underline;
   }
   
