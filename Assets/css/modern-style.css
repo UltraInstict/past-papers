@@ -540,70 +540,51 @@
   
   .paper-header {
     padding: 1rem 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
   }
   
   .paper-info {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
   
   .paper-year {
     background: var(--primary-color);
     color: white;
-    padding: 0.4rem 0.8rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
+    align-self: flex-start;
     min-width: 60px;
     text-align: center;
   }
   
-  .paper-details h4 {
-    margin: 0;
+  .paper-subject {
     color: var(--text-primary);
     font-size: 1rem;
-  }
-  
-  .paper-details p {
-    margin: 0.25rem 0 0;
-    color: var(--text-light);
-    font-size: 0.85rem;
-  }
-  
-  .paper-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: var(--text-light);
-    font-size: 0.8rem;
-  }
-  
-  .paper-meta span {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+    font-weight: 600;
+    margin: 0;
   }
   
   .paper-actions {
-    padding: 0.75rem 1.25rem;
+    padding: 1rem 1.25rem;
     background: var(--bg-color);
-    border-top: 1px solid var(--border-color);
   }
   
   .paper-links {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
-    flex-wrap: wrap;
+  }
+  
+  .paper-links.single-link {
+    grid-template-columns: 1fr;
   }
   
   .paper-link {
-    flex: 1;
-    min-width: 120px;
     padding: 0.75rem 1rem;
     background: var(--gradient);
     color: white;
@@ -616,6 +597,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    text-align: center;
   }
   
   .paper-link:hover {
@@ -625,14 +607,6 @@
   
   .paper-link.memo {
     background: var(--gradient-accent);
-  }
-  
-  .paper-link.preview {
-    background: linear-gradient(135deg, #10b981, #059669);
-  }
-  
-  .paper-link.download {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
   }
   
   /* Card View Alternative */
@@ -646,6 +620,7 @@
   .papers-grid.card-view .paper-header {
     background: var(--gradient);
     color: white;
+    border-bottom: none;
   }
   
   .papers-grid.card-view .paper-year {
@@ -653,13 +628,8 @@
     color: white;
   }
   
-  .papers-grid.card-view .paper-details h4,
-  .papers-grid.card-view .paper-details p {
+  .papers-grid.card-view .paper-subject {
     color: white;
-  }
-  
-  .papers-grid.card-view .paper-meta {
-    color: rgba(255, 255, 255, 0.8);
   }
   
   /* Compact List View */
@@ -673,7 +643,7 @@
   }
   
   .papers-grid.compact-view .paper-actions {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
   }
   
   .papers-grid.compact-view .paper-links {
@@ -683,7 +653,6 @@
   .papers-grid.compact-view .paper-link {
     padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
-    min-width: 100px;
   }
   
   /* About & Contact Pages */

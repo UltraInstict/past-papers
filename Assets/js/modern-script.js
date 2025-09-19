@@ -443,40 +443,27 @@ class PapersHub {
       item.setAttribute('data-year', paper.year);
   
       // Extract additional metadata if available
-      const paperType = paper.paper_type || 'Exam Paper';
-      const duration = paper.duration || 'N/A';
-      const marks = paper.marks || 'N/A';
+      const paperType = paper.paper_type || '';
   
       item.innerHTML = `
         <div class="paper-header">
           <div class="paper-info">
             <div class="paper-year">${paper.year}</div>
-            <div class="paper-details">
-              <h4>${subject}</h4>
-              <p>${grade} • ${paperType}</p>
-            </div>
-          </div>
-          <div class="paper-meta">
-            <span><i class="fas fa-clock"></i> ${duration}</span>
-            <span><i class="fas fa-award"></i> ${marks} marks</span>
+            <div class="paper-subject">${subject}${paperType ? ` - ${paperType}` : ''}</div>
           </div>
         </div>
         <div class="paper-actions">
           <div class="paper-links">
             <a href="${paper.paper}" class="paper-link" target="_blank" rel="noopener">
               <i class="fas fa-file-pdf"></i>
-              View Paper
+              Paper
             </a>
             ${paper.memo ? `
               <a href="${paper.memo}" class="paper-link memo" target="_blank" rel="noopener">
                 <i class="fas fa-file-text"></i>
-                View Memo
+                Memo
               </a>
             ` : ''}
-            <a href="${paper.paper}" class="paper-link download" download>
-              <i class="fas fa-download"></i>
-              Download
-            </a>
           </div>
         </div>
       `;
